@@ -36,28 +36,27 @@ public class Components {
         public ArrayList<String> nome = new ArrayList<String>();
         public void setCpf(String text){
             cpf.add(text);
-            System.out.println(cpf);
         }
         public  ArrayList<String> getCpf(){
             return cpf;
         }
         public void setNome(String text){
             nome.add(text);
-            System.out.println(nome);
         }
         public  ArrayList<String> getNome(){
             return nome;
         }
 
 
+
+
+
+
+
+
     }
 
-    public static void cadastrarNome(String text){
-        ArrayList<String> nome = new ArrayList<String>();
-        nome.add(text);
-        System.out.println(nome);
 
-    }
 
 
 

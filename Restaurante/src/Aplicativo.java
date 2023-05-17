@@ -28,7 +28,8 @@ public class Aplicativo {
             this.add(label);
 
             button.addActionListener(e -> {
-                Login janela = new Login("Login");
+                Components.Cadastro cad = new Components.Cadastro();
+                Login janela = new Login("Login", null,null);
                 this.setVisible(false);
                 janela.setVisible(true);
             });
@@ -42,8 +43,10 @@ public class Aplicativo {
         }
     }
     public static class Login extends JFrame{
-        public Login(String title){
+        public Login(String title, ArrayList<String> nome, ArrayList<String> cpf){
             super(title);
+            Components.Cadastro cad = new Components.Cadastro();
+;
             this.setSize(600,600);
             getContentPane().setBackground(new Color(50, 50, 50));
             this.setLayout(null);
@@ -70,7 +73,17 @@ public class Aplicativo {
             text2.setLocation(100, 200);
             password.setLocation(100, 400);
             button.setLocation(200, 400);
+
             button.addActionListener(e -> {
+                int n = nome.size();
+                for(int i = 0; i < n; i++){
+                    if(nome.get(i).equals(text.getText()) && cpf.get(i).equals(text2.getText())){
+                        System.out.println("autenticado");
+                    }
+                    else{
+                        System.out.println("não-autorizado");
+                    }
+                }
 
 
             });
@@ -83,11 +96,18 @@ public class Aplicativo {
             this.add(label2);
             this.add(button);
             this.add(label3);
-            ;
+
+
 //          --------------------------------------------------------------------------
 
 
         }
+
+        public ArrayList<String> getNome() {
+            Components.Cadastro cad = new Components.Cadastro();
+            return cad.getNome();
+        }
+
 
     }
     public static class Cadastro extends JFrame{
@@ -126,8 +146,7 @@ public class Aplicativo {
                 Components.Cadastro cad = new Components.Cadastro();
                 cad.setCpf(text2.getText());
                 cad.setNome(text.getText());
-                Login tela = new Login("Login");
-                this.setVisible(false);
+                Login tela = new Login("Login", cad.getNome(), cad.getCpf());
                 tela.setVisible(true);
 
 
@@ -143,9 +162,12 @@ public class Aplicativo {
             this.add(label3);
 //          --------------------------------------------------------------------------
 
+
         }
 
     }
+
+
 
     }
 
