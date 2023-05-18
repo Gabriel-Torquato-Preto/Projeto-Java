@@ -34,6 +34,8 @@ public class Components {
     public static class Cadastro{
         public ArrayList<String> cpf = new ArrayList<String>();
         public ArrayList<String> nome = new ArrayList<String>();
+
+        public ArrayList<String> endereco = new ArrayList<>();
         public void setCpf(String text){
             cpf.add(text);
         }
@@ -47,27 +49,12 @@ public class Components {
             return nome;
         }
 
+        public void setEndereco(String text){ endereco.add(text);}
 
-
-
-
-
-
-
+        public ArrayList<String> getEndereco(){return endereco;}
     }
-
-
-
-
-
-
-
-
-
-
     public static class TextFiled extends JTextField{
-        public TextFiled(String placeholder){
-            super(placeholder);
+        public TextFiled(){
             this.setSize(200,35);
         }
     }
